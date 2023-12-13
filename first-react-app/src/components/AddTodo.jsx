@@ -1,4 +1,5 @@
 import React from "react";
+import '../App.css'
 
 function AddTodo() {
   return (
@@ -11,7 +12,7 @@ function AddTodo() {
           <input type="date" />
         </div>
         <div class="col-2 d-flex">
-          <button className="btn btn-success">Add</button>
+          <button className="btn btn-success kg-button">Add</button>
         </div>
       </div>
     </>
