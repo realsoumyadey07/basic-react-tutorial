@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from'./Item.module.css'
-export default function Item({e, handleBuyButtonClick}) {
+function Item({e, handleBuyButtonClick}) {
   
   return (
     <>
@@ -8,3 +8,4 @@ export default function Item({e, handleBuyButtonClick}) {
     </>
   )
 }
+export default Item

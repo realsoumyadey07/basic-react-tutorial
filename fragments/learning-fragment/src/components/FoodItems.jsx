@@ -3,7 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Item from './Item'
 
 export default function FoodItems({items}) {
-  
+  const brought = (e)=>{
+    console.log(`${e} is clicked`)
+  }
   return (
     <div>
         <ul className="list-group">
@@ -11,7 +13,7 @@ export default function FoodItems({items}) {
         <Item 
         key={e} 
         e={e}
-        handleBuyButtonClick={()=>console.log(`${e} is clicked`)}
+        handleBuyButtonClick={()=>brought(e)}
         />)}  
         </ul>
     </div>
