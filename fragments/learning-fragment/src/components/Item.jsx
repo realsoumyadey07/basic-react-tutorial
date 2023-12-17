@@ -1,10 +1,10 @@
 import React from 'react'
-// import '../App.css'
 import styles from'./Item.module.css'
-export default function Item(props) {
+export default function Item({e, handleBuyButtonClick}) {
+  
   return (
     <>
-     <li className={`${styles.kgitem} list-group-item ${styles.bold}`} ><span className='bold'>{props.e}</span></li>
+     <li className={`${styles.kgitem} list-group-item ${styles.bold}`} ><span className='bold'>{e}</span><button className={styles.button} onClick={handleBuyButtonClick}>Buy</button></li>
     </>
   )
 }

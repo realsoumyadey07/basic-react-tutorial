@@ -1,7 +1,14 @@
 .kgitem{
-     background-color: khaki;
-     border: 2px solid black;
+     border: 1px solid black;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
 }
 .bold{
      font-weight: 800;
+}
+.button{
+     border-radius: 5px;
+     background-color: green;
+     color: #fff;
 }
