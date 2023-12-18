@@ -6,8 +6,7 @@ import Container from "./components/container";
 import "./App.css";
 import FoodInput from "./components/FoodInput";
 function App() {
-  const [textToShow, setTextToShow] = useState();
-  const [foodItems, setFoodItems] = useState(["Dal","Salad","Chawal","Green vegetable"]);
+  const [foodItems, setFoodItems] = useState([]);
   const handleKeyDown = (event) => {
     if (event.code == "Enter"){
       let newFoodItem = event.target.value
