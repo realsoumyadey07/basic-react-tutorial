@@ -5,7 +5,7 @@ export default function TodoItems({todoItems}) {
   return (
     <>
       <div className="items-container">
-      {todoItems.map(e=><TodoItem todoDate={e.dueDate} todoName={e.name} />)}
+      {todoItems.map(e=><TodoItem todoDate={e.dueDate} key={e.name} todoName={e.name} />)}
       </div>
     </>
   );
