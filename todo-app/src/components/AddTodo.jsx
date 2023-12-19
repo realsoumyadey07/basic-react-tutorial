@@ -7,7 +7,7 @@ function AddTodo({onNewItem}) {
   const [dueDate,setDate]=useState("");
   const changeName =(e)=>{
     console.log(e.target.value);
-    let newName = e.target.value
+    let newName = e.target.value;
     setName(newName);
   }
   const changeDate =(e)=>{
@@ -15,19 +15,24 @@ function AddTodo({onNewItem}) {
     let newDate = e.target.value;
     setDate(newDate);
   }
+  const handleAddButtonClicked =()=>{
+    onNewItem(name,dueDate);
+    setName("");
+    setDate("");
+  }
   
   return (
     <>
       <div className="row my-3 d-flex flex-wrap">
         <div className="col-6 d-flex">
-          <input type="text" placeholder="Enter todo here" onChange={changeName} />
+          <input type="text"
+          value={name} placeholder="Enter todo here" onChange={changeName} />
         </div>
         <div className="col-4 d-flex">
-          <input type="date" onChange={changeDate} />
+          <input type="date" value={dueDate} onChange={changeDate} />
         </div>
         <div className="col-2 d-flex">
-          <button className="btn btn-success kg-button" onClick={()=>{
-    onNewItem(name,dueDate)} }>Add</button>
+          <button className="btn btn-success kg-button" onClick={handleAddButtonClicked }>Add</button>
         </div>
       </div>
     </>
