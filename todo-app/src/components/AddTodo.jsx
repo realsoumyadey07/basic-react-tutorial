@@ -1,6 +1,7 @@
 import React from "react";
 import '../App.css'
 import { useState } from "react";
+import { MdOutlineLibraryAdd } from "react-icons/md";
 
 function AddTodo({onNewItem}) {
   const [name,setName]=useState("");
@@ -16,9 +17,12 @@ function AddTodo({onNewItem}) {
     setDate(newDate);
   }
   const handleAddButtonClicked =()=>{
-    onNewItem(name,dueDate);
-    setName("");
-    setDate("");
+    if(name.length!==0 && dueDate.length!==0){
+      onNewItem(name,dueDate);
+      setName("");
+      setDate("");
+    }
+    
   }
   
   return (
@@ -32,7 +36,7 @@ function AddTodo({onNewItem}) {
           <input type="date" value={dueDate} onChange={changeDate} />
         </div>
         <div className="col-2 d-flex">
-          <button className="btn btn-success kg-button" onClick={handleAddButtonClicked }>Add</button>
+          <button className="btn btn-success kg-button" onClick={handleAddButtonClicked }><MdOutlineLibraryAdd /></button>
         </div>
       </div>
     </>
