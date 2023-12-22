@@ -1,26 +1,37 @@
 import React from "react";
 import '../App.css'
-import { useState } from "react";
+import { useRef } from "react";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 
 function AddTodo({onNewItem}) {
-  const [name,setName]=useState("");
-  const [dueDate,setDate]=useState("");
-  const changeName =(e)=>{
-    console.log(e.target.value);
-    let newName = e.target.value;
-    setName(newName);
-  }
-  const changeDate =(e)=>{
-    console.log(e.target.value);
-    let newDate = e.target.value;
-    setDate(newDate);
-  }
-  const handleAddButtonClicked =()=>{
+  // const [name,setName]=useState("");
+  // const [dueDate,setDate]=useState("");
+  const todoNameElement = useRef();
+  const todoDateElement = useRef();
+
+
+  // const changeName =(e)=>{
+  //   console.log(e.target.value);
+  //   let newName = e.target.value;
+  //   setName(newName);
+  //   noOfUpdates.current++;
+  // }
+  // const changeDate =(e)=>{
+  //   console.log(e.target.value);
+  //   let newDate = e.target.value;
+  //   setDate(newDate);
+  //   console.log(noOfUpdates)
+  // }
+  const handleAddButtonClicked =(event)=>{
+    console.log(event);
+    event.preventDefault();
+    const name= todoNameElement.current.value;
+    const dueDate = todoDateElement.current.value;
     if(name.length!==0 && dueDate.length!==0){
+      console.log(name, dueDate);
       onNewItem(name,dueDate);
-      setName("");
-      setDate("");
+      todoNameElement.current.value="";
+      todoDateElement.current.value="";
     }
     
   }
@@ -30,13 +41,14 @@ function AddTodo({onNewItem}) {
       <div className="row my-3 d-flex flex-wrap">
         <div className="col-6 d-flex">
           <input type="text"
-          value={name} placeholder="Enter todo here" onChange={changeName} />
+          ref={todoNameElement}
+          placeholder="Enter todo here"  />
         </div>
         <div className="col-4 d-flex">
-          <input type="date" value={dueDate} onChange={changeDate} />
+          <input type="date" ref={todoDateElement}   />
         </div>
         <div className="col-2 d-flex">
-          <button className="btn btn-success kg-button" onClick={handleAddButtonClicked }><MdOutlineLibraryAdd /></button>
+          <button className="btn btn-success kg-button" onClick={handleAddButtonClicked}><MdOutlineLibraryAdd /></button>
         </div>
       </div>
     </>
