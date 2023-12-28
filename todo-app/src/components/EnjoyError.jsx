@@ -3,7 +3,7 @@ import React from 'react'
 function EnjoyError({todoItems}) {
   return (
      <>
-    {todoItems.length==0?<h1>You can enjoy your day!</h1>:""}
+    {todoItems.length ===0 && <h1>You can enjoy your day!</h1>}
     </>
   )
 }

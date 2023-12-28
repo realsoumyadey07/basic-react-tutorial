@@ -4,24 +4,9 @@ import { useRef } from "react";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 
 function AddTodo({onNewItem}) {
-  // const [name,setName]=useState("");
-  // const [dueDate,setDate]=useState("");
+  
   const todoNameElement = useRef();
   const todoDateElement = useRef();
-
-
-  // const changeName =(e)=>{
-  //   console.log(e.target.value);
-  //   let newName = e.target.value;
-  //   setName(newName);
-  //   noOfUpdates.current++;
-  // }
-  // const changeDate =(e)=>{
-  //   console.log(e.target.value);
-  //   let newDate = e.target.value;
-  //   setDate(newDate);
-  //   console.log(noOfUpdates)
-  // }
   const handleAddButtonClicked =(event)=>{
     console.log(event);
     event.preventDefault();
@@ -32,10 +17,8 @@ function AddTodo({onNewItem}) {
       onNewItem(name,dueDate);
       todoNameElement.current.value="";
       todoDateElement.current.value="";
-    }
-    
+    } 
   }
-  
   return (
     <>
       <div className="row my-3 d-flex flex-wrap">
