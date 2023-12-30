@@ -8,27 +8,27 @@ import EnjoyError from "./components/EnjoyError";
 import { TodoItemsContext } from "./store/todo-items-store";
 
 function App() {
-  
+
   const [todoItems, setTodoItems] = useState([]);
-  const onNewItem = (name, dueDate) => {
+  const addNewItem = (name, dueDate) => {
     console.log(`New item added ${name} Date is: ${dueDate}`);
     let newTodoItems = [...todoItems, { name: name, dueDate: dueDate }];
     setTodoItems(newTodoItems);
   };
-  const handleDeleteItem = (todoName) => {
+  const deleteItem = (todoName) => {
     let newItem = todoItems.filter((item) => item.name !== todoName);
     setTodoItems(newItem);
     console.log("Item deleted");
   };
-
+  
   return (
     <>
-      <TodoItemsContext.Provider value={[]}>
+      <TodoItemsContext.Provider value={{todoItems:todoItems,addNewItem: addNewItem, deleteItem:deleteItem}}>
         <div className="todo-content container">
           <AppName/>
-          <AddTodo onNewItem={onNewItem} />
-          <EnjoyError todoItems={todoItems} />
-          <TodoItems onDeleteClick={handleDeleteItem} todoItems={todoItems} />
+          <AddTodo />
+          <EnjoyError />
+          <TodoItems  />
         </div>
       </TodoItemsContext.Provider>
     </>
