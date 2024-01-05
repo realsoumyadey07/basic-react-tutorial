@@ -4,13 +4,12 @@ import CreatePost from "./components/CreatePost";
 import Navbar from "./components/Navbar";
 import PostList from "./components/PostList";
 import Sidebar from "./components/Sidebar";
-import PostListProvider from "./store/post-list-store";
+
 
 function App() {
   const [selectedTab, setSelectedTab] = useState("Home");
 
   return (
-    <PostListProvider>
       <div className="app">
         <Navbar />
         <div className="d-flex content">
@@ -20,7 +19,6 @@ function App() {
           </div>
         </div>
       </div>
-    </PostListProvider>
   );
 }
 
