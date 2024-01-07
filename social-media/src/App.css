@@ -7,3 +7,17 @@
 .main-content{
      width: 100%;
 }
+.post-card{
+     margin: 20px 50px;
+}
+.reactions{
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     width: 100%;
+}
+.reactions p{
+     display: flex;
+     align-items: center;
+     margin-bottom: 0;
+}
